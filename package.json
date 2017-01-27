@@ -1,5 +1,5 @@
 {
-    "name": "node-onion-omega-oled",
+    "name": "onion-omega-oled",
     "description": "Node.js wrapper for the OLED expansion of the Onion Omega / Omega2",
     "version": "1.0.0",
     "main": "index.js",
@@ -14,5 +14,9 @@
             "name": "MIT",
             "url": "https://opensource.org/licenses/mit-license.php"
         }
-    ]
+    ],
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/jonathan-reisdorf/node-onion-omega-oled"
+    }
 }
