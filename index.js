@@ -88,4 +88,4 @@ module.exports = (function() {
   }
 
   return new OmegaOled();
-});
+})();
