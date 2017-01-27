@@ -15,7 +15,7 @@ module.exports = (function() {
      * @param command
      * @param isExecuteChain
      */
-    _executeCommand(command, isExecuteChain = false) {
+    _executeCommand(command, isExecuteChain) {
       if (this._chainMode && !isExecuteChain) {
         return this._commandChain.push(command);
       }
@@ -31,15 +31,27 @@ module.exports = (function() {
       return this._executeCommand('-c');
     }
 
-    power(on = true) {
+    power(on) {
+      if (typeof on === 'undefined') {
+        on = true;
+      }
+
       return this._executeCommand('power ' + (on ? 'on' : 'off'));
     }
 
-    invert(on = true) {
+    invert(on) {
+      if (typeof on === 'undefined') {
+        on = true;
+      }
+
       return this._executeCommand('invert ' + (on ? 'on' : 'off'));
     }
 
-    dim(on = true) {
+    dim(on) {
+      if (typeof on === 'undefined') {
+        on = true;
+      }
+
       return this._executeCommand('dim ' + (on ? 'on' : 'off'));
     }
 
