@@ -17,8 +17,6 @@ class OmegaOled {
             return this._commandChain.push(command);
         }
 
-        return console.log('I would now execute: ', 'oled-exp ' + command);
-
         return exec('oled-exp ' + command);
     }
 
