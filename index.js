@@ -94,8 +94,9 @@ module.exports = (function() {
     }
 
     executeChain() {
-      this._executeCommand(this._commandChain.join(' '), true);
+      const executionResult = this._executeCommand(this._commandChain.join(' '), true);
       this._commandChain = [];
+      return executionResult;
     }
   }
 
