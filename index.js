@@ -1,8 +1,7 @@
 module.exports = (function() {
   'use strict';
 
-  require('util');
-  const exec = require('child_process').exec;
+  const exec = require('node-exec-promise').exec;
 
   class OmegaOled {
     constructor() {
@@ -17,7 +16,8 @@ module.exports = (function() {
      */
     _executeCommand(command, isExecuteChain) {
       if (this._chainMode && !isExecuteChain) {
-        return this._commandChain.push(command);
+        this._commandChain.push(command);
+        return Promise.resolve(this._commandChain);
       }
 
       return exec('oled-exp ' + command);
@@ -64,7 +64,7 @@ module.exports = (function() {
     }
 
     write(string) {
-      return this._executeCommand('write ' + string);
+      return this._executeCommand("write '" + string + "'");
     }
 
     writeByte(byte) {

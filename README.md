@@ -40,8 +40,9 @@ Within your project, create a .js file like this:
 ```
 var omegaOled = require('onion-omega-oled');
 
-omegaOled.init();
-omegaOled.write('This is a test!');
+omegaOled.init().then(function() {
+  omegaOled.write('This is a test!');
+});
 ```
 
 # Advanced usage

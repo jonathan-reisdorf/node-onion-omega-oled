@@ -1,17 +1,20 @@
 {
-    "name": "onion-omega-oled",
-    "description": "Node.js wrapper for the OLED expansion of the Onion Omega / Omega2",
-    "version": "1.0.4",
-    "main": "index.js",
-    "maintainers": [
-        {
-            "name": "Jonathan Reisdorf",
-            "email": "fishlevel@livespam.org"
-        }
-    ],
-    "license": "MIT",
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/jonathan-reisdorf/node-onion-omega-oled"
+  "name": "onion-omega-oled",
+  "description": "Node.js wrapper for the OLED expansion of the Onion Omega / Omega2",
+  "version": "1.0.5",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "Jonathan Reisdorf",
+      "email": "fishlevel@livespam.org"
     }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonathan-reisdorf/node-onion-omega-oled"
+  },
+  "dependencies": {
+    "node-exec-promise": "^0.1.1"
+  }
 }
