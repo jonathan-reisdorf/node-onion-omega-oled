@@ -7,6 +7,11 @@ module.exports = (function() {
     constructor() {
       this._chainMode = false;
       this._commandChain = [];
+      this._is = {
+        poweredOn: false,
+        inverted: false,
+        dimmed: false
+      };
     }
 
     /**
@@ -23,8 +28,18 @@ module.exports = (function() {
       return exec('oled-exp ' + command);
     }
 
+    _getFlag(property) {
+      return this._is[property];
+    }
+
+    _setFlag(carry, value, property) {
+      this._is[property] = value;
+      return carry;
+    }
+
     init() {
-      return this._executeCommand('-i');
+      return this._executeCommand('-i')
+        .then(result => this._setFlag(result, true, 'poweredOn'));
     }
 
     clear() {
@@ -33,26 +48,29 @@ module.exports = (function() {
 
     power(on) {
       if (typeof on === 'undefined') {
-        on = true;
+        return this._getFlag('poweredOn');
       }
 
-      return this._executeCommand('power ' + (on ? 'on' : 'off'));
+      return this._executeCommand('power ' + (on ? 'on' : 'off'))
+        .then(result => this._setFlag(result, !!on, 'poweredOn'));
     }
 
     invert(on) {
       if (typeof on === 'undefined') {
-        on = true;
+        return this._getFlag('inverted');
       }
 
-      return this._executeCommand('invert ' + (on ? 'on' : 'off'));
+      return this._executeCommand('invert ' + (on ? 'on' : 'off'))
+        .then(result => this._setFlag(result, !!on, 'inverted'));
     }
 
     dim(on) {
       if (typeof on === 'undefined') {
-        on = true;
+        return this._getFlag('dimmed');
       }
 
-      return this._executeCommand('dim ' + (on ? 'on' : 'off'));
+      return this._executeCommand('dim ' + (on ? 'on' : 'off'))
+        .then(result => this._setFlag(result, !!on, 'dimmed'));
     }
 
     cursor(row, column) {
