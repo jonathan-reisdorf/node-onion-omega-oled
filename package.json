@@ -3,12 +3,6 @@
   "description": "Node.js wrapper for the OLED expansion of the Onion Omega / Omega2",
   "version": "1.0.7",
   "main": "index.js",
-  "maintainers": [
-    {
-      "name": "Jonathan Reisdorf",
-      "email": "fishlevel@livespam.org"
-    }
-  ],
   "license": "MIT",
   "repository": {
     "type": "git",
